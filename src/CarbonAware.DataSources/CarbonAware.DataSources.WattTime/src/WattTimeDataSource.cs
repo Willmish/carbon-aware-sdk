@@ -78,6 +78,10 @@ public class WattTimeDataSource : ICarbonIntensityDataSource
             }
             var windowData = ConvertToEmissionsData(data);
             var filteredData = IntervalHelper.FilterByDuration(windowData, periodStartTime, periodEndTime);
+            foreach (var el in filteredData)
+            {
+                Logger.LogCritical(el.ToString());
+            }
 
             if (!filteredData.Any())
             {

@@ -17,9 +17,15 @@ public static class IntervalHelper
     {
         if (duration != default)
         {   // constant duration
+            Console.WriteLine("Default: " + duration.ToString());
             return expandedData.Where(d => (d.Time + duration) >= startTime && d.Time <= endTime);
         }
-        return expandedData.Where(d => (d.Time + d.Duration) >= startTime && d.Time <= endTime);
+            Console.WriteLine("Custom: ");
+        foreach(var el in expandedData)
+        {
+            Console.WriteLine(el.Duration.ToString());
+        }
+        return expandedData.Where(d => (d.Time) >= startTime && d.Time <= endTime);
     }
 
     /// <summary>
