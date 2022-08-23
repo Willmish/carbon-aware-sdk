@@ -26,6 +26,9 @@ public static class IntervalHelper
             Console.WriteLine(el.Duration.ToString());
         }
         return expandedData.Where(d => (d.Time) >= startTime && d.Time <= endTime);
+        // TODO CHECK THIS: WORKS FOR WHEN TIME MATCHES WATTTIME, e.g. 2022-08-22T16:45 for both,
+        // DOES NOT WORK WHEN TIME DOESNT MATCH WATTTIME: 2022-08-22T16:43 (NEED TO LOOK AT PREVIOUS, MAYBE d.Time + d.Duration > startTime)
+        // CHECK FOR INTERVALS
     }
 
     /// <summary>
