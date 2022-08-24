@@ -18,14 +18,14 @@ public static class IntervalHelper
         if (duration != default)
         {   // constant duration
             Console.WriteLine("Default: " + duration.ToString());
-            return expandedData.Where(d => (d.Time + duration) >= startTime && d.Time <= endTime);
+            return expandedData.Where(d => (d.Time + duration) > startTime && d.Time <= endTime);
         }
             Console.WriteLine("Custom: ");
         foreach(var el in expandedData)
         {
             Console.WriteLine(el.Duration.ToString());
         }
-        return expandedData.Where(d => (d.Time) >= startTime && d.Time <= endTime);
+        return expandedData.Where(d => (d.Time + d.Duration) > startTime && d.Time <= endTime);
         // TODO CHECK THIS: WORKS FOR WHEN TIME MATCHES WATTTIME, e.g. 2022-08-22T16:45 for both,
         // DOES NOT WORK WHEN TIME DOESNT MATCH WATTTIME: 2022-08-22T16:43 (NEED TO LOOK AT PREVIOUS, MAYBE d.Time + d.Duration > startTime)
         // CHECK FOR INTERVALS
